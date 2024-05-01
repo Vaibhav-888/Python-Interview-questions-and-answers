@@ -10,7 +10,6 @@ Q.2. What is Decorator? Explain with example.
 Answer: A Decorator is just a function that takes another fuction as an argument, add some kind of functionality and then returns another function. 
 All of this without altering the source code of the original function that you passed in.
 
-```python
 Example: 
 def decorator_func(func):
         def wrapper_func():
@@ -37,6 +36,6 @@ Output:
 decorator_func worked
 wrapper_func Worked
 display worked
-```
+
 
 
