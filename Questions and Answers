@@ -38,4 +38,59 @@ wrapper_func Worked
 display worked
 
 
+Q.3. What is the difference between the List and Dictionary comprehension?
+Answer: List comprehension:                                                                                    Dictionary comprehension: 
+        Syntax: [expression for item in iterable if condional]                                                 Syntax: {key:value for (key, value) in iterable if conditional}
+                pseudo code: list = [new_item for item in list if conditional]                                         pseudo code: dict = {new_key:new_value for (key, value) in dict}
+Example:                                                                                                       Example:
+Common Way:                                                                                                    Comman Way:
+list = []                                                                                                      dict = {}
+for i in range(10):                                                                                            for i in range(1, 10):            
+        if i%2:                                                                                                        sqr = i*i                
+        list.append(i)                                                                                                 dict[i] = i*i
+print(i)                                                                                                       print(dict) 
+                                                                                                                                
+Using List comprehension:                                                                                      Using Dict comprehension:
+list = [i for i in range(10) if i%2]                                                                           dict = {n:n*n for n in range(1, 10)}
+print(list)                                                                                                    print(dict)
+
+Output:                                                                                                        Output:
+[1, 3, 5, 7, 9]                                                                                                {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+
+Q.4. How memory managed in python?
+Answer: 1. Memory management in Python involves a private heap containing all Python objects and data structures. 
+           Interpreter takes care of Python heap and that the programmer has no access to it.
+        2. The allocation of heap space for Python objects is done by the Python memory manager. The core API of Python
+           provides some tools for the programmer to code reliable and more robust program.
+        3. Python also has a builtin garbage collector which recycles all the unused memory. When the object is no longer referenced by the program,
+           the heap space it occupies can be freed. The garbage collector determines objects which are no longer referenced by the program frees the occupied memory 
+           and make it available to the heap space.
+        4. The gc module defines fuctions to enable/disable garbage collector:
+                gc.enables() - Enables automatic garbage collection.
+                gc.disable() - Disables automatic garbage collection.
+
+Q.5. What is the differance between the Generators and iterators?
+Answer: Generator:                                                                        Iterator:
+        1. Generators are iterators which can execute only once.                          1. An iterator is an object which contains a countable number of values  
+        2. Generator used "yield" keyword.                                                   and it is used to iterate over iterable objects like list, tuples, sets, etc.
+        3. Generators are mostly used in loops to generate an iterator                    2. Iterators are used mostly to iterate or convert other objects to an iterator using iter() function.
+           by returning all the values in the loop without affecting the                  3. Iterator used iter() and next() functions.
+           iteration of the loop.
+        4. Every generator is an iterator.                                                4. Every iterator is not a generator.
+
+Example:                                                                                  Example:
+def sqr(n):                                                                               iter_list = iter(['A', 'B', 'C'])
+        for i in range(1, n+1):                                                           print(next(iter_list))
+                yield i*i                                                                 print(next(iter_list))
+a = sqr(3)                                                                                print(next(iter_list))
+print(next(a))                                                                                
+print(next(b))
+print(next(c))
+
+Output:                                                                                   Output:
+1                                                                                         A       
+4                                                                                         B
+9                                                                                         C
+
+
 
